@@ -11,7 +11,7 @@ function App() {
   // 2e: dependency array: -> wanneer wil je dit doen
 
   useEffect(() => {
-    // console.log("LEEG DEPENDENCY ARRAY, MOUNTING");
+    console.log("LEEG DEPENDENCY ARRAY, MOUNTING");
   }, []);
 
   useEffect(() => {
