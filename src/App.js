@@ -1,22 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
+  let count = 5;
+  console.log("WHAT IS COUNT:", count);
+  // rendering
+  function addOne() {
+    console.log("ADDING??");
+    count = count + 1;
+    // count++
+    console.log("What is count after clicking??", count);
+
+    // UPDATE DE PAGINA MET DE NIEUWE WAARDE
+    document.getElementById("counter").innerText = count;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {count}
+        <button onClick={addOne}>+</button>
       </header>
     </div>
   );
