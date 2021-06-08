@@ -1,24 +1,28 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
-  let count = 5;
+  let [count, setCount] = useState(5);
   console.log("WHAT IS COUNT:", count);
   // rendering
   function addOne() {
-    console.log("ADDING??");
-    count = count + 1;
-    // count++
-    console.log("What is count after clicking??", count);
+    setCount(count + 1); // hierna moet de pagina worden geupdate!
+  }
 
-    // UPDATE DE PAGINA MET DE NIEUWE WAARDE
-    document.getElementById("counter").innerText = count;
+  function addOneNOTLIKETHIS() {
+    const counter = document.getElementById("counter");
+    const currentCount = Number(counter.innerText);
+
+    // count = count + 1;
+    counter.innerText = currentCount + 1; // dom manipulatie / de pagina aan het updaten
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        {count}
+        <p id="counter">{count}</p>
         <button onClick={addOne}>+</button>
+        <button onClick={addOneNOTLIKETHIS}>NOT LIKE THIS!</button>
       </header>
     </div>
   );
