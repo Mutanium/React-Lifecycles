@@ -11,7 +11,7 @@ function App() {
   // 2e: dependency array: -> wanneer wil je dit doen
 
   useEffect(() => {
-    console.log("LEEG DEPENDENCY ARRAY, MOUNTING");
+    // console.log("LEEG DEPENDENCY ARRAY, MOUNTING");
   }, []);
 
   useEffect(() => {
@@ -19,7 +19,26 @@ function App() {
     if (count >= 10) {
       setCount(0);
     }
+
+    // cleanup: voordat count veranderd
+    return () => {
+      console.log("VOER DIT UIT VOOR COUNT VERANDERD");
+    };
   }, [count]);
+
+  useEffect(() => {
+    // console.log("Ik ga luisteren of de gebruiker scrollt");
+    // add a global event listener here
+    // window.addEventListener("scroll", () => {
+    //   // doe iets wanneer de gebruiker scrolled
+    // });
+    // return functie uit useffect, deze wordt uitgevoer on unmount
+    return () => {
+      console.log("DO THIS ON UN MOUNT");
+      // we slaan het formulier op in local storage
+      // window.removeEventListener("scroll");
+    };
+  }, []);
 
   function addOne() {
     // console.log("VOOR KLIK");
